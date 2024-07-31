@@ -1,11 +1,11 @@
-PREFIX?=astefanutti
-REPOSITORIES?=quay.io/$(PREFIX) ghcr.io/$(PREFIX)
-VERSION?=18.10.0
+PREFIX?=divyam234
+REPOSITORIES?= ghcr.io/$(PREFIX)
+VERSION?=22.5.1
 
 # This option is for running docker manifest command
 export DOCKER_CLI_EXPERIMENTAL := enabled
 
-ARCHITECTURES=amd64 arm32v6 arm32v7 arm64v8
+ARCHITECTURES=amd64 arm64v8
 
 tag-images:
 	@for arch in $(ARCHITECTURES); do docker tag $(PREFIX)/scratch-node:${VERSION}-$${arch} $(PREFIX)/scratch-node:${TAG}-$${arch}; done
